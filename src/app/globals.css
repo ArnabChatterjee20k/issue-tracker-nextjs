@@ -16,8 +16,8 @@
   }
 }
 
-body {
-  
+.radix-themes {
+  --default-font-family: var(--font-inter);
 }
 
 @layer utilities {

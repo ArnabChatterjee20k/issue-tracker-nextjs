@@ -11,7 +11,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex px-6 h-14 items-center space-x-6 border border-b">
+    <nav className="flex px-6 h-14 items-center space-x-6 border border-b mb-5">
       <Link href="/">
         <FaBug />
       </Link>
