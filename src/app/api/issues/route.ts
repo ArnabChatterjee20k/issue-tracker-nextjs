@@ -8,9 +8,12 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const result = issuesValidation.safeParse(body);
   if (!result.success) {
-    const { errors } = result.error;
+    const errors = result.error.format();
     return NextResponse.json(
-      { status: "Please enter all the fields", errors },
+      {
+        status: "Please enter all the fields",
+        errors: [errors.description?._errors, errors.title?._errors],
+      },
       { status: 400 }
     );
   }
