@@ -1,13 +1,15 @@
 "use client"
-import React from "react";
+import React, { Suspense } from "react";
 import { FaBug } from "react-icons/fa6";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getSession } from "./actions/action";
+
 const links = [
   { link: "/dashboard", name: "Dashboard" },
   { link: "/issues", name: "Issues" },
 ];
-export default function Header() {
+export default function Header({children}:{children:React.ReactNode}) {
   const pathname = usePathname();
 
   return (
@@ -27,6 +29,7 @@ export default function Header() {
           </Link>
         ))}
       </ul>
+      {children}
     </nav>
   );
 }

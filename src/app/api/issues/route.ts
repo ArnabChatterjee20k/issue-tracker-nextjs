@@ -22,3 +22,7 @@ export async function POST(request: NextRequest) {
   const savedIssue = await newIssue.save();
   return NextResponse.json({ status: "successfull", savedIssue });
 }
+
+export async function GET(request: NextRequest) {
+  return NextResponse.json({ data: await Issues.find() });
+}

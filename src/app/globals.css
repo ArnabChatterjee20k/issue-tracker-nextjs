@@ -25,3 +25,6 @@
     text-wrap: balance;
   }
 }
+#avatar svg{
+  border-radius: 100%;
+}
