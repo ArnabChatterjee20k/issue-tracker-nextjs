@@ -14,15 +14,18 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
-function loginActionWrapper(
+async function loginActionWrapper(
   prevState: { error: undefined | string },
   registerData: FormData
 ) {
-  login({
+  const res = await login({
     email: registerData.get("email") as string,
     password: registerData.get("password") as string,
   });
+  if (res?.status === "error")
+    toast.error(res?.message || "Some error occured");
 }
 
 const LoginForm = () => {
@@ -68,6 +71,5 @@ const LoginForm = () => {
     </Card>
   );
 };
-
 
 export default LoginForm;

@@ -1,6 +1,6 @@
 import db from "@/db/db";
 import User from "@/db/models/User";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 db()
 export class UserUtils {
   static async isUserExists(email: string) {
