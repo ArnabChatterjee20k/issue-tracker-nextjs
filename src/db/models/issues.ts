@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose, { Schema, mongo } from "mongoose";
 
 const issueSchema = new mongoose.Schema(
   {
@@ -15,6 +15,11 @@ const issueSchema = new mongoose.Schema(
       enum: ["open", "in progress", "closed"],
       default: "open",
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users",
+      required:true
+    },
   },
   {
     timestamps: {
@@ -24,5 +29,5 @@ const issueSchema = new mongoose.Schema(
   }
 );
 
-const issues = mongoose.models.issues || mongoose.model("issues",issueSchema)
-export default issues
+const issues = mongoose.models.issues || mongoose.model("issues", issueSchema);
+export default issues;

@@ -33,7 +33,7 @@ export default function RootLayout({
           </Header>
           <main className="px-5">{children}</main>
           <Toaster position="bottom-right" />
-          <ThemePanel/>
+          {/* <ThemePanel/> */}
         </Theme>
       </body>
     </html>

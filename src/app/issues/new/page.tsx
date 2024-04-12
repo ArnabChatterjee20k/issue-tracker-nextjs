@@ -27,7 +27,7 @@ export default function page() {
     setLoading(true);
     try {
       const res = await axios.post("/api/issues", data);
-      if (res.status === 200) router.push("/issues");
+      if (res.status === 200){ toast.success("success");router.push("/issues")};
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const errorPayload: string[][] = error.response?.data?.errors;

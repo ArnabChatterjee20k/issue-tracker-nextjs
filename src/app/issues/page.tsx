@@ -1,17 +1,13 @@
-"use client"
-import { Button } from "@radix-ui/themes";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { Suspense } from "react";
+import IssuesPage from "./IssuePage";
 
-export default function Issues() {
-    const [issues,setIssues] = useState("")
-    useEffect(()=>{
-        axios.get("/api/issues").then(data=>setIssues(data.data?.data))
-    },[])
+export default function page({ searchParams = { page: "1", limit: "1" } }) {
   return (
-    <div>
-      <Button>New Issue</Button>
-      <code>{issues}</code>
-    </div>
+    <>
+      <h1>Hello User</h1>
+      <Suspense key={searchParams.page} fallback={<h1>Loading.....</h1>}>
+        <IssuesPage searchParams={searchParams} />
+      </Suspense>
+    </>
   );
 }

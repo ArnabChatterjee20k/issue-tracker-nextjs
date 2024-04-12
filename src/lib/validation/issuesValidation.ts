@@ -7,5 +7,5 @@ export default z.object({
   description: z
     .string()
     .min(10, "Description too small")
-    .max(500, "Description should be less than 500 characters"),
+    .max(500, "Description should be less than 500 characters")
 });
